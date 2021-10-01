@@ -1,0 +1,413 @@
+header{
+    box-shadow: 0 2px 2px rgba(53, 53, 53, 0.25);
+    position: relative;
+    z-index: 99;
+    top: 0;
+    background: $blue;
+    @include trans(all .4s);
+    .container{
+        display: flex;
+    }
+}
+
+.logo-img{
+    height: 50px;
+}
+
+.header-logo{
+    width: 20%;
+    @include center-item(flex, center, center);
+}
+
+.header-main{
+    background: $dark;
+    width: 80%;
+    position: relative;
+    color: $white;
+
+    &::before{
+        @include befo($dark, 1000%, 100%);
+
+        top: 0;
+        left: 100%;
+        margin-right: -15px;
+    }
+    &__top{
+        @include center-item(flex, space-between, center);
+        @include trans(all .4s);
+
+        background-color: #1d1f25;
+        font-size: .72rem;
+        position: relative;
+        text-transform: uppercase;
+        .comon-div{
+            padding: .85rem 2rem;
+            border-left: 1px solid rgba(175, 175, 175, 0.274);
+            // &:first-child{
+            //     border: none;
+            // }
+            // &:last-child{
+            //     padding-left: 4rem;
+            //     padding-right: 2.4rem;
+            // }
+        }
+        .language{
+            padding: .5rem 1.5rem;
+            border-left: 1px solid rgba(175, 175, 175, 0.274);
+            border-right: 1px solid rgba(175, 175, 175, 0.274);
+            a{
+                display: flex;
+                align-items: center;
+                &.a-main{
+                    color: $white;
+                    font-weight: bold;
+                }
+            }
+        }
+        .flex-item{
+            padding-right: 2.4rem;
+        }
+        span{
+            font-weight: 800;
+        }
+        a{
+            font-weight: 900;
+            color: $blue;
+            @include hover;
+            span{
+                transition: all 0s;
+            }
+        }
+        &::before{
+            @include befo(#1d1f25, 1000%, 100%);
+
+            top: 0;
+            left: 100%;
+            margin-right: -15px;
+        }
+    }
+    &__center{
+        padding: 1rem;
+        padding-right: 2.4rem;
+        display: flex;
+        justify-content: flex-end;
+        @include trans(all .4s);
+    }
+    &__bottom{
+        .social{
+            width: 334px;
+            text-align: center;
+            .ul-reset{
+                justify-content: center;
+                li{
+                    padding: 0 1.5rem;
+                }
+            }
+        }
+    }
+}
+.scroll-up{
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    z-index: 9999;
+    background: $blue;
+    color: $white;
+    border-radius: 3px;
+    font-size: 1.3rem;
+    opacity: 0;
+    visibility: hidden;
+    padding: .8rem 1.2rem;
+    height: 50px;
+    width: 55px;
+    overflow: hidden;
+    box-shadow: rgba(34, 35, 58, 0.2) 0 14px 80px;
+    @include trans(all .4s);
+    &:focus{
+        box-shadow: rgba(34, 35, 58, 0.2) 0 14px 80px;
+    }
+
+    &.show{
+        opacity: 1;
+        visibility: visible;
+    }
+    i{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        @include trans(all .3s);
+        &.two{
+            top: 150%;
+        }
+    }
+    &:hover{
+        color: $white;
+        background: $orange;
+        .one{
+            top: -150%;
+        }
+        .two{
+            top: 50%;
+        }
+    }
+}
+
+
+.img-flags{
+    margin-right: .6rem;
+    width: 24px;
+    border-radius: 2px;
+    box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.05), -2px 0 5px 1px rgba(0, 0, 0, 0.05);
+}
+
+.box-memu{
+    background: $blue;
+    width: calc(100% - 334px);
+    padding: 1.8rem 0;
+    position: relative;
+    &::before{
+        position: absolute;
+        left: 0;
+        top: 0;
+        border-right: 21px solid transparent;
+        border-top: 20px solid #24262d;
+        content: "";
+    }
+    &::after{
+        @include befo($blue, 1000%, 100%);
+
+        top: 0;
+        left: 100%;
+        margin-right: -15px;
+    }
+}
+
+.contact-list{
+    li{
+        padding-left: 2rem;
+        text-transform: uppercase;
+    }
+    span{
+        font-weight: 800;
+        font-size: .65rem;
+        display: inline-block;
+        margin-right: 1rem;
+    }
+    a{
+        font-size: .7rem;
+        @include hover;
+    }
+}
+
+.menu{
+    justify-content: space-around;
+    position: relative;
+    z-index: 99;
+    li{
+        position: relative;
+        &:hover{
+            .sub-menu{
+                opacity: 1;
+                transform: translateY(0);
+                visibility: visible;
+            }
+        }
+    }
+    a{
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: .75rem;
+        position: relative;
+        @include hover;
+       
+        &::before{
+            @include befo(transparent, 150%, 60px);
+
+            top: -20px;
+            left: -25%;
+        }
+    }
+    .sub-menu{
+        position: absolute;
+        top: 50px;
+        min-width: 240px;
+        background: $white;
+        border-radius: 5px;
+        padding: 1.3rem;
+        opacity: 0;
+        transform: translateY(30px);
+        visibility: hidden;
+        box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.05), -2px 0 5px 1px rgba(0, 0, 0, 0.05);
+        @include trans(all .3s);
+       
+        a{
+            color: $dark;
+            text-transform: none;
+            position: static;
+            &:hover{
+                color: $blue;
+            }
+            &::before{
+                display: none;
+            }
+        }
+        li{
+            padding: .7rem 0;
+            border-bottom: 1px solid rgba(179, 179, 179, 0.418);
+            &:last-child{
+                padding-bottom: 0;
+                border-bottom: none;
+                &::before{
+                    display: none;
+                }
+            }
+            
+            &:first-child{
+                padding-top: 0;
+            }
+            
+            &::before{
+                @include befo($blue, 0, 1px);
+
+                bottom: -1px;
+                left: 0;
+                @include trans(all .2s);
+            }
+            &:hover{
+                &::before{
+                    width: 100%;
+                }
+            }
+        }
+        &::before{
+            @include befo(transparent, 100%, 30px);
+
+            top: -30px;
+            left: 0;
+        }
+    }
+}
+
+.login-hidden{
+    font-size: .75rem;
+    font-weight: 800;
+    display: none;
+    padding: 0 1rem;
+    justify-content: center;
+    a:hover{
+        color: $blue;
+    }
+    span{
+        @include trans(all 0s);
+    }
+    .a-main{
+        padding: .5rem 0;
+        @include center-item(flex, center, center);
+    }
+    .identity__submenu{
+        a{
+            display: flex;
+            align-items: center;
+        }
+    }
+}
+
+.header-sticky{
+    top: 0;
+    position: sticky;
+    .header-main__top{
+        height: 0;
+        overflow: hidden;
+        padding: 0 .3rem;
+    }
+    .header-main__center{
+        height: 0;
+        overflow: hidden;
+        padding: 0 2.4rem;
+    }
+    .logo-img {
+        height: 40px;
+        padding: .3rem 0;
+    }
+
+    .box-memu{
+        padding: 1.2rem 0;
+    }
+    .login-hidden{
+        display: flex;
+    }
+    .social-links{
+        display: none;
+    }
+    .identity{
+        display: flex;
+        font-size: .7rem;
+    }
+}
+
+.identity{
+    position: relative;
+    &__submenu{
+        position: absolute;
+        top: 35px;
+        min-width: 240px;
+        background: $white;
+        border-radius: 5px;
+        padding: 1rem 1.3rem;
+        opacity: 0;
+        transform: translateY(30px);
+        visibility: hidden;
+        z-index: 100;
+        box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.05), -2px 0 5px 1px rgba(0, 0, 0, 0.05);
+        @include trans(all .3s);
+        a{
+            color: $dark;
+            text-transform: none;
+            font-weight: bold;
+            font-size: .8rem;
+            &:hover{
+                color: $blue;
+            }
+            &::before{
+                display: none;
+            }
+        }
+        li{
+            padding: .7rem 0;
+            position: relative;
+            border-bottom: 1px solid rgba(179, 179, 179, 0.418);
+            &:last-child{
+                padding-bottom: 0;
+                border-bottom: none;
+                &::before{
+                    display: none;
+                }
+            }
+            
+            &:first-child{
+                padding-top: 0;
+            }
+            
+            &::before{
+                @include befo($blue, 0, 1px);
+
+                bottom: -1px;
+                left: 0;
+                @include trans(all .2s);
+            }
+            &:hover{
+                &::before{
+                    width: 100%;
+                }
+            }
+        }
+    }
+    &:hover{
+        .identity__submenu{
+            opacity: 1;
+            transform: translateY(0);
+            visibility: visible;
+        }
+    }
+}
